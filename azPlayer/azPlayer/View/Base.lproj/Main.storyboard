@@ -10,21 +10,45 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Playing-->
+        <!--Player-->
         <scene sceneID="eb4-8f-uPv">
             <objects>
-                <viewController id="Pxl-Je-c8i" sceneMemberID="viewController">
+                <viewController id="Pxl-Je-c8i" customClass="PlayerViewController" customModule="azPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DmC-NB-XXp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-a5-Spz">
+                                <rect key="frame" x="150" y="323" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8On-pg-cYH" userLabel="PlayPauseButton">
+                                <rect key="frame" x="164" y="391" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playPauseButtonTouch:" destination="Pxl-Je-c8i" eventType="touchDown" id="mtu-9D-j29"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ocL-a5-Spz" firstAttribute="centerY" secondItem="DmC-NB-XXp" secondAttribute="centerY" id="eXd-uE-bfG"/>
+                            <constraint firstItem="ocL-a5-Spz" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" id="rba-tb-SPJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5EY-3d-8YW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Playing" id="IMr-HE-XcM"/>
+                    <tabBarItem key="tabBarItem" title="Player" id="IMr-HE-XcM"/>
+                    <connections>
+                        <outlet property="PlayPauseButton" destination="8On-pg-cYH" id="fhl-jD-a5q"/>
+                        <outlet property="TitleLabel" destination="ocL-a5-Spz" id="WBe-Du-yeR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKf-B7-eVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-222" y="213"/>
+            <point key="canvasLocation" x="-223.19999999999999" y="212.74362818590706"/>
         </scene>
         <!--Songs-->
         <scene sceneID="a7p-Ic-dQ9">
