@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9109362C1FEDCB8300ADCCAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109362B1FEDCB8300ADCCAA /* AppDelegate.swift */; };
+		910936311FEDCB8300ADCCAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9109362F1FEDCB8300ADCCAA /* Main.storyboard */; };
+		910936331FEDCB8300ADCCAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 910936321FEDCB8300ADCCAA /* Assets.xcassets */; };
+		910936361FEDCB8300ADCCAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910936341FEDCB8300ADCCAA /* LaunchScreen.storyboard */; };
+		910936411FEDCB8400ADCCAA /* azPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910936401FEDCB8400ADCCAA /* azPlayerTests.swift */; };
+		9109364C1FEDCB8400ADCCAA /* azPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109364B1FEDCB8400ADCCAA /* azPlayerUITests.swift */; };
+		911E8FF5201FEF5B00E4682F /* SongsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E8FF4201FEF5B00E4682F /* SongsTableCell.swift */; };
+		9186AB6C2016C76000657BED /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186AB6B2016C76000657BED /* SongsTableViewController.swift */; };
+		9186AB6E2016D84500657BED /* MusicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186AB6D2016D84500657BED /* MusicData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9109363D1FEDCB8400ADCCAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 910936201FEDCB8300ADCCAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 910936271FEDCB8300ADCCAA;
+			remoteInfo = azPlayer;
+		};
+		910936481FEDCB8400ADCCAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 910936201FEDCB8300ADCCAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 910936271FEDCB8300ADCCAA;
+			remoteInfo = azPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		910936281FEDCB8300ADCCAA /* azPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = azPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9109362B1FEDCB8300ADCCAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		910936301FEDCB8300ADCCAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		910936321FEDCB8300ADCCAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		910936351FEDCB8300ADCCAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		910936371FEDCB8300ADCCAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9109363C1FEDCB8400ADCCAA /* azPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = azPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		910936401FEDCB8400ADCCAA /* azPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = azPlayerTests.swift; sourceTree = "<group>"; };
+		910936421FEDCB8400ADCCAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		910936471FEDCB8400ADCCAA /* azPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = azPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9109364B1FEDCB8400ADCCAA /* azPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = azPlayerUITests.swift; sourceTree = "<group>"; };
+		9109364D1FEDCB8400ADCCAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		911E8FF4201FEF5B00E4682F /* SongsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableCell.swift; sourceTree = "<group>"; };
+		9186AB6B2016C76000657BED /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
+		9186AB6D2016D84500657BED /* MusicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		910936251FEDCB8300ADCCAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910936391FEDCB8400ADCCAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910936441FEDCB8400ADCCAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9109361F1FEDCB8300ADCCAA = {
+			isa = PBXGroup;
+			children = (
+				9109362A1FEDCB8300ADCCAA /* azPlayer */,
+				9109363F1FEDCB8400ADCCAA /* azPlayerTests */,
+				9109364A1FEDCB8400ADCCAA /* azPlayerUITests */,
+				910936291FEDCB8300ADCCAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		910936291FEDCB8300ADCCAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				910936281FEDCB8300ADCCAA /* azPlayer.app */,
+				9109363C1FEDCB8400ADCCAA /* azPlayerTests.xctest */,
+				910936471FEDCB8400ADCCAA /* azPlayerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9109362A1FEDCB8300ADCCAA /* azPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				910936371FEDCB8300ADCCAA /* Info.plist */,
+				910936321FEDCB8300ADCCAA /* Assets.xcassets */,
+				9109362B1FEDCB8300ADCCAA /* AppDelegate.swift */,
+				911E8FF1201FEE9000E4682F /* Model */,
+				911E8FF2201FEE9F00E4682F /* View */,
+				911E8FF3201FEEA600E4682F /* Controller */,
+			);
+			path = azPlayer;
+			sourceTree = "<group>";
+		};
+		9109363F1FEDCB8400ADCCAA /* azPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				910936401FEDCB8400ADCCAA /* azPlayerTests.swift */,
+				910936421FEDCB8400ADCCAA /* Info.plist */,
+			);
+			path = azPlayerTests;
+			sourceTree = "<group>";
+		};
+		9109364A1FEDCB8400ADCCAA /* azPlayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9109364B1FEDCB8400ADCCAA /* azPlayerUITests.swift */,
+				9109364D1FEDCB8400ADCCAA /* Info.plist */,
+			);
+			path = azPlayerUITests;
+			sourceTree = "<group>";
+		};
+		911E8FF1201FEE9000E4682F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9186AB6D2016D84500657BED /* MusicData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		911E8FF2201FEE9F00E4682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				910936341FEDCB8300ADCCAA /* LaunchScreen.storyboard */,
+				9109362F1FEDCB8300ADCCAA /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		911E8FF3201FEEA600E4682F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9186AB6B2016C76000657BED /* SongsTableViewController.swift */,
+				911E8FF4201FEF5B00E4682F /* SongsTableCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		910936271FEDCB8300ADCCAA /* azPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 910936501FEDCB8400ADCCAA /* Build configuration list for PBXNativeTarget "azPlayer" */;
+			buildPhases = (
+				910936241FEDCB8300ADCCAA /* Sources */,
+				910936251FEDCB8300ADCCAA /* Frameworks */,
+				910936261FEDCB8300ADCCAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = azPlayer;
+			productName = azPlayer;
+			productReference = 910936281FEDCB8300ADCCAA /* azPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9109363B1FEDCB8400ADCCAA /* azPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 910936531FEDCB8400ADCCAA /* Build configuration list for PBXNativeTarget "azPlayerTests" */;
+			buildPhases = (
+				910936381FEDCB8400ADCCAA /* Sources */,
+				910936391FEDCB8400ADCCAA /* Frameworks */,
+				9109363A1FEDCB8400ADCCAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9109363E1FEDCB8400ADCCAA /* PBXTargetDependency */,
+			);
+			name = azPlayerTests;
+			productName = azPlayerTests;
+			productReference = 9109363C1FEDCB8400ADCCAA /* azPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		910936461FEDCB8400ADCCAA /* azPlayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 910936561FEDCB8400ADCCAA /* Build configuration list for PBXNativeTarget "azPlayerUITests" */;
+			buildPhases = (
+				910936431FEDCB8400ADCCAA /* Sources */,
+				910936441FEDCB8400ADCCAA /* Frameworks */,
+				910936451FEDCB8400ADCCAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				910936491FEDCB8400ADCCAA /* PBXTargetDependency */,
+			);
+			name = azPlayerUITests;
+			productName = azPlayerUITests;
+			productReference = 910936471FEDCB8400ADCCAA /* azPlayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		910936201FEDCB8300ADCCAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Wenfei Cao";
+				TargetAttributes = {
+					910936271FEDCB8300ADCCAA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					9109363B1FEDCB8400ADCCAA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 910936271FEDCB8300ADCCAA;
+					};
+					910936461FEDCB8400ADCCAA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 910936271FEDCB8300ADCCAA;
+					};
+				};
+			};
+			buildConfigurationList = 910936231FEDCB8300ADCCAA /* Build configuration list for PBXProject "azPlayer" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9109361F1FEDCB8300ADCCAA;
+			productRefGroup = 910936291FEDCB8300ADCCAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				910936271FEDCB8300ADCCAA /* azPlayer */,
+				9109363B1FEDCB8400ADCCAA /* azPlayerTests */,
+				910936461FEDCB8400ADCCAA /* azPlayerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		910936261FEDCB8300ADCCAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				910936361FEDCB8300ADCCAA /* LaunchScreen.storyboard in Resources */,
+				910936331FEDCB8300ADCCAA /* Assets.xcassets in Resources */,
+				910936311FEDCB8300ADCCAA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9109363A1FEDCB8400ADCCAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910936451FEDCB8400ADCCAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		910936241FEDCB8300ADCCAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9186AB6C2016C76000657BED /* SongsTableViewController.swift in Sources */,
+				911E8FF5201FEF5B00E4682F /* SongsTableCell.swift in Sources */,
+				9186AB6E2016D84500657BED /* MusicData.swift in Sources */,
+				9109362C1FEDCB8300ADCCAA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910936381FEDCB8400ADCCAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				910936411FEDCB8400ADCCAA /* azPlayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		910936431FEDCB8400ADCCAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9109364C1FEDCB8400ADCCAA /* azPlayerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9109363E1FEDCB8400ADCCAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 910936271FEDCB8300ADCCAA /* azPlayer */;
+			targetProxy = 9109363D1FEDCB8400ADCCAA /* PBXContainerItemProxy */;
+		};
+		910936491FEDCB8400ADCCAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 910936271FEDCB8300ADCCAA /* azPlayer */;
+			targetProxy = 910936481FEDCB8400ADCCAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9109362F1FEDCB8300ADCCAA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				910936301FEDCB8300ADCCAA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		910936341FEDCB8300ADCCAA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				910936351FEDCB8300ADCCAA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9109364E1FEDCB8400ADCCAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9109364F1FEDCB8400ADCCAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		910936511FEDCB8400ADCCAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RP9WQA3JG;
+				INFOPLIST_FILE = azPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwf123.azPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		910936521FEDCB8400ADCCAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RP9WQA3JG;
+				INFOPLIST_FILE = azPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwf123.azPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		910936541FEDCB8400ADCCAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RP9WQA3JG;
+				INFOPLIST_FILE = azPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwf123.azPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/azPlayer.app/azPlayer";
+			};
+			name = Debug;
+		};
+		910936551FEDCB8400ADCCAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RP9WQA3JG;
+				INFOPLIST_FILE = azPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwf123.azPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/azPlayer.app/azPlayer";
+			};
+			name = Release;
+		};
+		910936571FEDCB8400ADCCAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RP9WQA3JG;
+				INFOPLIST_FILE = azPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwf123.azPlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = azPlayer;
+			};
+			name = Debug;
+		};
+		910936581FEDCB8400ADCCAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RP9WQA3JG;
+				INFOPLIST_FILE = azPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cwf123.azPlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = azPlayer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		910936231FEDCB8300ADCCAA /* Build configuration list for PBXProject "azPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9109364E1FEDCB8400ADCCAA /* Debug */,
+				9109364F1FEDCB8400ADCCAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		910936501FEDCB8400ADCCAA /* Build configuration list for PBXNativeTarget "azPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				910936511FEDCB8400ADCCAA /* Debug */,
+				910936521FEDCB8400ADCCAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		910936531FEDCB8400ADCCAA /* Build configuration list for PBXNativeTarget "azPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				910936541FEDCB8400ADCCAA /* Debug */,
+				910936551FEDCB8400ADCCAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		910936561FEDCB8400ADCCAA /* Build configuration list for PBXNativeTarget "azPlayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				910936571FEDCB8400ADCCAA /* Debug */,
+				910936581FEDCB8400ADCCAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 910936201FEDCB8300ADCCAA /* Project object */;
+}

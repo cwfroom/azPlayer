@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2pO-3a-2ju">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Playing-->
+        <scene sceneID="eb4-8f-uPv">
+            <objects>
+                <viewController id="Pxl-Je-c8i" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DmC-NB-XXp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5EY-3d-8YW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Playing" id="IMr-HE-XcM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKf-B7-eVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-222" y="213"/>
+        </scene>
+        <!--Songs-->
+        <scene sceneID="a7p-Ic-dQ9">
+            <objects>
+                <tableViewController id="Qky-oR-TBL" userLabel="Songs" customClass="SongsTableViewController" customModule="azPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6l5-rc-oBO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="62" id="qf4-ND-egL" customClass="SongsTableCell" customModule="azPlayer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="62"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qf4-ND-egL" id="8E5-8D-oCC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01z-3D-o5I" userLabel="TitleLabel">
+                                            <rect key="frame" x="170.5" y="20.5" width="33.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="01z-3D-o5I" firstAttribute="centerY" secondItem="8E5-8D-oCC" secondAttribute="centerY" id="GkF-VN-Uff"/>
+                                        <constraint firstItem="01z-3D-o5I" firstAttribute="centerX" secondItem="8E5-8D-oCC" secondAttribute="centerX" id="QJl-VV-5bo"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="TitleLabel" destination="01z-3D-o5I" id="M7O-J6-02h"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Qky-oR-TBL" id="D7j-N7-2Gg"/>
+                            <outlet property="delegate" destination="Qky-oR-TBL" id="1Nx-mf-ymr"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Songs" id="c2s-vq-ihp" userLabel="Songs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rc5-F3-0dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-202.40000000000001" y="-504.19790104947532"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="QOR-9q-R2W">
+            <objects>
+                <tabBarController id="2pO-3a-2ju" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nqu-Dp-MNT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Qky-oR-TBL" kind="relationship" relationship="viewControllers" id="mlE-x2-ZO4"/>
+                        <segue destination="Pxl-Je-c8i" kind="relationship" relationship="viewControllers" id="5TD-90-IOT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DU6-Xq-hXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1176" y="-120"/>
+        </scene>
+    </scenes>
+</document>
