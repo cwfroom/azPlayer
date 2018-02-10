@@ -32,13 +32,19 @@ class PlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mediaPlayer.shuffleMode = .off;
         setSong(index: data.currentIndex);
+        
+        let nc = NotificationCenter.default;
+        nc.addObserver(self, selector: #selector(self.onSongChange), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: mediaPlayer);
+        mediaPlayer.beginGeneratingPlaybackNotifications();
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if (playingIndex != data.currentIndex){
             setSong(index: data.currentIndex);
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,11 +60,29 @@ class PlayerViewController: UIViewController {
             timer.invalidate();
             nowPlaying = true;
         }
+        playingQueue = [index];
         let item = MPMediaQuery.songs().items![index];
-        let collection : MPMediaItemCollection = MPMediaItemCollection(items: [item]);
+        updateUI(item: item);
+        var items = [item];
+        
+        for _ in 0...100 {
+            let randIndex : Int = getRandIndex();
+            items.append(MPMediaQuery.songs().items![randIndex]);
+            playingQueue.append(randIndex);
+        }
+        
+        let collection : MPMediaItemCollection = MPMediaItemCollection(items: items);
         mediaPlayer.setQueue(with: collection);
-        TitleLabel.text = data.songs[index].songTitle;
-        ArtistLabel.text = data.songs[index].artistName;
+        
+        if (nowPlaying){
+            mediaPlayer.play();
+            startTimer();
+        }
+    }
+    
+    func updateUI(item : MPMediaItem){
+        TitleLabel.text = data.songs[playingIndex].songTitle;
+        ArtistLabel.text = data.songs[playingIndex].artistName;
         if (item.artwork != nil){
             let coverImage = item.artwork!.image(at: CGSize(width: 300, height:300));
             CoverImage.image = coverImage;
@@ -67,11 +91,10 @@ class PlayerViewController: UIViewController {
         }
         PlayCountLabel.text = "Played " + String(item.playCount);
         SkipCountLabel.text = "Skipped " + String(item.skipCount);
-        
-        if (nowPlaying){
-            mediaPlayer.play();
-            startTimer();
-        }
+    }
+    
+    func getRandIndex() -> Int{
+        return Int(arc4random_uniform(UInt32(data.songs.count)));
     }
     
     func pickRandomSong(){
@@ -87,7 +110,7 @@ class PlayerViewController: UIViewController {
     
     @objc func updateTime(){
         if (mediaPlayer.playbackState != .playing){
-            pickRandomSong();
+            timer.invalidate();
             return;
         }
         let pastTime  = mediaPlayer.currentPlaybackTime.magnitude;
@@ -120,13 +143,17 @@ class PlayerViewController: UIViewController {
         }
     }
     @IBAction func prevButtonTouch(_ sender: Any) {
-        //mediaPlayer.skipToPreviousItem();
-        pickRandomSong();
+        mediaPlayer.skipToPreviousItem();
     }
     
     @IBAction func nextButtonTouch(_ sender: Any) {
-        //mediaPlayer.skipToNextItem();
-        pickRandomSong();
+        mediaPlayer.skipToNextItem();
+    }
+    
+    @objc func onSongChange(_ notification : NSNotification){
+        playingIndex = playingQueue[mediaPlayer.indexOfNowPlayingItem];
+        data.currentIndex = playingIndex;
+        updateUI(item: MPMediaQuery.songs().items![playingIndex])
     }
     /*
     // MARK: - Navigation
