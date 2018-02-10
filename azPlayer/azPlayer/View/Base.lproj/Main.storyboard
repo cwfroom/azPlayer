@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,31 +20,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-a5-Spz">
-                                <rect key="frame" x="150" y="323" width="75" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-a5-Spz">
+                                <rect key="frame" x="169" y="432" width="37.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr8-5D-ILT" userLabel="ArtistLabel">
+                                <rect key="frame" x="166.5" y="461" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8On-pg-cYH" userLabel="PlayPauseButton">
-                                <rect key="frame" x="164" y="391" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8On-pg-cYH" userLabel="PlayPauseButton">
+                                <rect key="frame" x="147" y="502" width="80" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="4a8-4d-6BQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="playPauseButtonTouch:" destination="Pxl-Je-c8i" eventType="touchDown" id="mtu-9D-j29"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultCover" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-HQ-UVr" userLabel="CoverImage">
+                                <rect key="frame" x="37.5" y="60" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="EyN-4N-X1b"/>
+                                    <constraint firstAttribute="width" constant="300" id="tcM-Ho-eC8"/>
+                                </constraints>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IGF-12-pQL" userLabel="TimeLine">
+                                <rect key="frame" x="37" y="390" width="300" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="W4h-55-22k"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR1-kT-BTh" userLabel="PlayCountLabel">
+                                <rect key="frame" x="84" y="570" width="48.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skipped" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppW-F2-P1x" userLabel="SkipCountLabel">
+                                <rect key="frame" x="238.5" y="570" width="59.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEP-kb-KiY" userLabel="PastTimeLabel">
+                                <rect key="frame" x="17.5" y="394" width="39" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mT-q6-pYy" userLabel="RemainingTimeLabel">
+                                <rect key="frame" x="317.5" y="394" width="39" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3W-Qe-k0W" userLabel="PrevButton">
+                                <rect key="frame" x="38.5" y="502" width="58" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="prevButtonTouch:" destination="Pxl-Je-c8i" eventType="touchDown" id="AZW-Yu-V7J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgN-AX-EPJ" userLabel="NextButton">
+                                <rect key="frame" x="277" y="502" width="61" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonTouch:" destination="Pxl-Je-c8i" eventType="touchDown" id="mlF-w9-Eqb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ocL-a5-Spz" firstAttribute="centerY" secondItem="DmC-NB-XXp" secondAttribute="centerY" id="eXd-uE-bfG"/>
+                            <constraint firstItem="hxg-HQ-UVr" firstAttribute="top" secondItem="5EY-3d-8YW" secondAttribute="top" constant="40" id="3rJ-QU-NQT"/>
+                            <constraint firstItem="KgN-AX-EPJ" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" constant="120" id="50X-ef-6qs"/>
+                            <constraint firstItem="X3W-Qe-k0W" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" constant="-120" id="7mb-bm-Skx"/>
+                            <constraint firstItem="8On-pg-cYH" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" id="8jU-10-iZM"/>
+                            <constraint firstItem="LR1-kT-BTh" firstAttribute="top" secondItem="8On-pg-cYH" secondAttribute="bottom" constant="20" id="AM5-9L-dUm"/>
+                            <constraint firstItem="IGF-12-pQL" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" id="Ilv-1v-z0U"/>
+                            <constraint firstItem="rEP-kb-KiY" firstAttribute="top" secondItem="IGF-12-pQL" secondAttribute="bottom" constant="2" id="REy-ev-QBF"/>
+                            <constraint firstItem="hxg-HQ-UVr" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" id="RXa-xN-7Px"/>
+                            <constraint firstItem="IGF-12-pQL" firstAttribute="top" secondItem="hxg-HQ-UVr" secondAttribute="bottom" constant="30" id="gsO-Yk-BGl"/>
+                            <constraint firstItem="Dr8-5D-ILT" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" id="hbV-1Z-umT"/>
+                            <constraint firstItem="9mT-q6-pYy" firstAttribute="top" secondItem="IGF-12-pQL" secondAttribute="bottom" constant="2" id="jLd-xP-EeF"/>
+                            <constraint firstItem="LR1-kT-BTh" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" constant="-80" id="ogw-EH-eYr"/>
+                            <constraint firstItem="8On-pg-cYH" firstAttribute="top" secondItem="Dr8-5D-ILT" secondAttribute="bottom" constant="20" id="pgx-SP-842"/>
+                            <constraint firstItem="ocL-a5-Spz" firstAttribute="top" secondItem="IGF-12-pQL" secondAttribute="bottom" constant="40" id="q12-eF-O05"/>
+                            <constraint firstItem="X3W-Qe-k0W" firstAttribute="centerY" secondItem="8On-pg-cYH" secondAttribute="centerY" id="qe7-jj-d9z"/>
                             <constraint firstItem="ocL-a5-Spz" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" id="rba-tb-SPJ"/>
+                            <constraint firstItem="9mT-q6-pYy" firstAttribute="centerX" secondItem="IGF-12-pQL" secondAttribute="trailing" id="sPB-LC-Brv"/>
+                            <constraint firstItem="ppW-F2-P1x" firstAttribute="centerX" secondItem="DmC-NB-XXp" secondAttribute="centerX" constant="80" id="sXq-iU-bhz"/>
+                            <constraint firstItem="KgN-AX-EPJ" firstAttribute="centerY" secondItem="8On-pg-cYH" secondAttribute="centerY" id="ugd-CF-xvr"/>
+                            <constraint firstItem="ppW-F2-P1x" firstAttribute="top" secondItem="8On-pg-cYH" secondAttribute="bottom" constant="20" id="ves-b0-bdD"/>
+                            <constraint firstItem="Dr8-5D-ILT" firstAttribute="top" secondItem="ocL-a5-Spz" secondAttribute="bottom" constant="5" id="vzr-O9-ytL"/>
+                            <constraint firstItem="rEP-kb-KiY" firstAttribute="centerX" secondItem="IGF-12-pQL" secondAttribute="leading" id="xiu-ZR-YGj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5EY-3d-8YW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Player" id="IMr-HE-XcM"/>
+                    <tabBarItem key="tabBarItem" title="Player" image="MusicNote" id="IMr-HE-XcM"/>
                     <connections>
+                        <outlet property="ArtistLabel" destination="Dr8-5D-ILT" id="pTv-Eq-KYn"/>
+                        <outlet property="CoverImage" destination="hxg-HQ-UVr" id="d65-ax-E9j"/>
+                        <outlet property="PlayCountLabel" destination="LR1-kT-BTh" id="kFe-Ux-yE0"/>
                         <outlet property="PlayPauseButton" destination="8On-pg-cYH" id="fhl-jD-a5q"/>
+                        <outlet property="SkipCountLabel" destination="ppW-F2-P1x" id="0Mo-gX-L1J"/>
+                        <outlet property="TimeLine" destination="IGF-12-pQL" id="Gpj-oe-jT3"/>
+                        <outlet property="TimePastLabel" destination="rEP-kb-KiY" id="kq0-o6-YoQ"/>
+                        <outlet property="TimeRemainingLabel" destination="9mT-q6-pYy" id="UIh-ff-fEf"/>
                         <outlet property="TitleLabel" destination="ocL-a5-Spz" id="WBe-Du-yeR"/>
                     </connections>
                 </viewController>
@@ -98,7 +188,7 @@
                             <outlet property="delegate" destination="Qky-oR-TBL" id="1Nx-mf-ymr"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Songs" id="c2s-vq-ihp" userLabel="Songs"/>
+                    <tabBarItem key="tabBarItem" title="Songs" image="PlayList" id="c2s-vq-ihp" userLabel="Songs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rc5-F3-0dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,4 +213,9 @@
             <point key="canvasLocation" x="-1176" y="-120"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DefaultCover" width="300" height="299"/>
+        <image name="MusicNote" width="30" height="30"/>
+        <image name="PlayList" width="30" height="30"/>
+    </resources>
 </document>
