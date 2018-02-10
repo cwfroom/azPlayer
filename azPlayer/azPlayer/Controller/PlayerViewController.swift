@@ -33,10 +33,18 @@ class PlayerViewController: UIViewController {
     }
     
     func setSong(index : Int){
+        var nowPlaying : Bool = false;
+        if (mediaPlayer.playbackState == .playing){
+            mediaPlayer.pause();
+            nowPlaying = true;
+        }
         let item = MPMediaQuery.songs().items![index];
         let collection : MPMediaItemCollection = MPMediaItemCollection(items: [item]);
         mediaPlayer.setQueue(with: collection);
         TitleLabel.text = data.songs[index].songTitle;
+        if (nowPlaying){
+            mediaPlayer.play();
+        }
     }
     
     

@@ -227,6 +227,11 @@
 					910936271FEDCB8300ADCCAA = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					9109363B1FEDCB8400ADCCAA = {
 						CreatedOnToolsVersion = 9.2;

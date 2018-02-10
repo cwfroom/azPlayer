@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,26 +60,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="62" id="qf4-ND-egL" customClass="SongsTableCell" customModule="azPlayer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="62"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="70" id="qf4-ND-egL" customClass="SongsTableCell" customModule="azPlayer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qf4-ND-egL" id="8E5-8D-oCC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01z-3D-o5I" userLabel="TitleLabel">
-                                            <rect key="frame" x="170.5" y="20.5" width="33.5" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="33.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5R-wU-amn" userLabel="ArtistLabel">
+                                            <rect key="frame" x="16" y="37" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="01z-3D-o5I" firstAttribute="centerY" secondItem="8E5-8D-oCC" secondAttribute="centerY" id="GkF-VN-Uff"/>
-                                        <constraint firstItem="01z-3D-o5I" firstAttribute="centerX" secondItem="8E5-8D-oCC" secondAttribute="centerX" id="QJl-VV-5bo"/>
+                                        <constraint firstItem="J5R-wU-amn" firstAttribute="top" secondItem="01z-3D-o5I" secondAttribute="bottom" constant="5" id="3SI-Nm-dTO"/>
+                                        <constraint firstItem="J5R-wU-amn" firstAttribute="leading" secondItem="8E5-8D-oCC" secondAttribute="leadingMargin" id="TVQ-Ey-Y7p"/>
+                                        <constraint firstItem="01z-3D-o5I" firstAttribute="top" secondItem="8E5-8D-oCC" secondAttribute="topMargin" id="l1c-DG-AuE"/>
+                                        <constraint firstItem="01z-3D-o5I" firstAttribute="leading" secondItem="8E5-8D-oCC" secondAttribute="leadingMargin" id="l2c-XL-A8H"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="ArtistLabel" destination="J5R-wU-amn" id="gqS-L8-zsj"/>
                                     <outlet property="TitleLabel" destination="01z-3D-o5I" id="M7O-J6-02h"/>
                                 </connections>
                             </tableViewCell>
