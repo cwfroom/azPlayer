@@ -28,12 +28,16 @@ class SongInfo {
 class MusicData{
     static let sharedInstance = MusicData();
     
-    var songs: [SongInfo]
+    var songs : [SongInfo];
     var currentIndex : Int = 0;
+    var sectionTitles : [String];
+    var songDic : [String:[SongInfo]];
     
     init(){
         songs = [];
-    }
+        sectionTitles = [];
+        songDic = [:];
+    };
     
     public func LoadSongs(songsTableView : SongsTableViewController){
         MPMediaLibrary.requestAuthorization { (status) in
@@ -53,7 +57,16 @@ class MusicData{
                     }
                     let aSong : SongInfo = SongInfo(songTitle: item.title!, artistName: artist, albumTitle: albumTitle,index : i);
                     self.songs.append(aSong);
+                    let sectionTitle = String(item.title!.prefix(1));
+                    if var sectionSongs = self.songDic[sectionTitle]{
+                        sectionSongs.append(aSong);
+                        self.songDic[sectionTitle] = sectionSongs;
+                    }else{
+                        self.songDic[sectionTitle] = [aSong];
+                    }
                 }
+                self.sectionTitles = [String](self.songDic.keys);
+                self.sectionTitles = self.sectionTitles.sorted();
                 print(self.songs.count);
                 songsTableView.reloadData();
                 
@@ -62,7 +75,7 @@ class MusicData{
             }
         }
         
-        
     }
+    
 
 }

@@ -16,6 +16,7 @@ class SongsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.delegate = self;
         data.LoadSongs(songsTableView:self);
+        
         self.tableView.reloadData();
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,11 +32,12 @@ class SongsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return data.sectionTitles.count;
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.songs.count;
+        let sectionTitle = data.sectionTitles[section];
+        return data.songDic[sectionTitle]!.count;
     }
 
     public func reloadData(){
@@ -47,18 +49,27 @@ class SongsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongsTableCell;
-        cell.TitleLabel.text = data.songs[indexPath.row].songTitle;
-        cell.ArtistLabel.text = data.songs[indexPath.row].artistName;
+        let sectionTitle = data.sectionTitles[indexPath.section];
+        cell.TitleLabel.text = data.songDic[sectionTitle]![indexPath.row].songTitle;
+        cell.ArtistLabel.text = data.songDic[sectionTitle]![indexPath.row].artistName;
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        data.currentIndex = indexPath.row;
+        data.currentIndex = data.songDic[data.sectionTitles[indexPath.section]]![indexPath.row].index;
         self.tabBarController?.selectedIndex = 1;
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60;
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return data.sectionTitles[section];
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return data.sectionTitles;
     }
 
     /*

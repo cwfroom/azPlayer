@@ -34,7 +34,6 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         mediaPlayer.shuffleMode = .off;
         setSong(index: data.currentIndex);
-        
         let nc = NotificationCenter.default;
         nc.addObserver(self, selector: #selector(self.onSongChange), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: mediaPlayer);
         mediaPlayer.beginGeneratingPlaybackNotifications();
@@ -54,11 +53,9 @@ class PlayerViewController: UIViewController {
     
     func setSong(index : Int){
         playingIndex = index;
-        var nowPlaying : Bool = false;
         if (mediaPlayer.playbackState == .playing){
             mediaPlayer.pause();
             timer.invalidate();
-            nowPlaying = true;
         }
         playingQueue = [index];
         let item = MPMediaQuery.songs().items![index];
@@ -74,10 +71,9 @@ class PlayerViewController: UIViewController {
         let collection : MPMediaItemCollection = MPMediaItemCollection(items: items);
         mediaPlayer.setQueue(with: collection);
         
-        if (nowPlaying){
-            mediaPlayer.play();
-            startTimer();
-        }
+        
+        mediaPlayer.play();
+        startTimer();
     }
     
     func updateUI(item : MPMediaItem){
@@ -105,7 +101,8 @@ class PlayerViewController: UIViewController {
     }
     
     func startTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true);
+        updatePlayPauseButtonText();
     }
     
     @objc func updateTime(){
@@ -113,8 +110,8 @@ class PlayerViewController: UIViewController {
             timer.invalidate();
             return;
         }
-        let pastTime  = mediaPlayer.currentPlaybackTime.magnitude;
-        let totalTime = (mediaPlayer.nowPlayingItem?.playbackDuration.magnitude)!;
+        let pastTime  = mediaPlayer.currentPlaybackTime;
+        let totalTime = (mediaPlayer.nowPlayingItem?.playbackDuration)!;
         TimeLine.progress = Float(pastTime / totalTime);
         TimePastLabel.text = timeToString(seconds: Int(pastTime));
         TimeRemainingLabel.text = timeToString(seconds: Int(totalTime) - Int(pastTime));
@@ -135,13 +132,21 @@ class PlayerViewController: UIViewController {
         if (mediaPlayer.playbackState == .playing){
             mediaPlayer.pause();
             timer.invalidate();
-            PlayPauseButton.setTitle("Play", for: .normal);
         }else{
-            PlayPauseButton.setTitle("Pause", for: .normal);
             mediaPlayer.play();
             startTimer();
         }
+        updatePlayPauseButtonText();
     }
+    
+    func updatePlayPauseButtonText(){
+        if (mediaPlayer.playbackState == .playing){
+            PlayPauseButton.setTitle("Pause", for: .normal);
+        }else{
+            PlayPauseButton.setTitle("Play", for: .normal);
+        }
+    }
+    
     @IBAction func prevButtonTouch(_ sender: Any) {
         mediaPlayer.skipToPreviousItem();
     }
