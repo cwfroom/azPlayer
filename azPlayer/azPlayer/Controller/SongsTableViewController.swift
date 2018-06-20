@@ -9,13 +9,17 @@
 import UIKit
 import MediaPlayer
 
-class SongsTableViewController: UITableViewController {
+class SongsTableViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     let data : MusicData = MusicData.sharedInstance;
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIButton!
+    var editMode : Bool = false;
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         self.tableView.delegate = self;
-        data.LoadSongs(songsTableView:self);
+        self.tableView.dataSource = self;
+        data.LoadSongs(self);
         
         self.tableView.reloadData();
         // Uncomment the following line to preserve selection between presentations
@@ -31,47 +35,80 @@ class SongsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return data.sectionTitles.count;
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionTitle = data.sectionTitles[section];
         return data.songDic[sectionTitle]!.count;
     }
 
-    public func reloadData(){
+    func reloadData(){
         DispatchQueue.main.async {
             self.tableView.reloadData();
         }
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongsTableCell;
         let sectionTitle = data.sectionTitles[indexPath.section];
         cell.TitleLabel.text = data.songDic[sectionTitle]![indexPath.row].songTitle;
-        cell.ArtistLabel.text = data.songDic[sectionTitle]![indexPath.row].artistName;
-        return cell
+        if (editMode){
+            cell.ArtistLabel.text = data.songDic[sectionTitle]![indexPath.row].titleReading;
+        }else{
+            cell.ArtistLabel.text = data.songDic[sectionTitle]![indexPath.row].artistName;
+        }
+        return cell;
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        data.currentIndex = data.songDic[data.sectionTitles[indexPath.section]]![indexPath.row].index;
-        self.tabBarController?.selectedIndex = 1;
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (editMode){
+            let sectionTitle = data.sectionTitles[indexPath.section];
+            let songInfo = data.songDic[sectionTitle]![indexPath.row];
+            
+            let alert = UIAlertController(title: "Edit Reading", message: songInfo.songTitle, preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = songInfo.titleReading
+            }
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let reading = alert?.textFields![0].text;
+                self.data.UpdateSong(self,songInfo,sectionTitle,reading!);
+                
+                //print("Text field: \(String(describing: textField?.text))")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            data.currentIndex = data.songDic[data.sectionTitles[indexPath.section]]![indexPath.row].index;
+            self.tabBarController?.selectedIndex = 1;
+        }
+        tableView.deselectRow(at: indexPath, animated: true);
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60;
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return data.sectionTitles[section];
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return data.sectionTitles;
     }
 
+    
+    @IBAction func editButtonTouch(_ sender: Any) {
+        editMode = !editMode;
+        if (editMode){
+            self.editButton.setTitle("Done", for:.normal);
+        }else{
+            self.editButton.setTitle("Edit", for:.normal);
+        }
+        self.tableView.reloadData();
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

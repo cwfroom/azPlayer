@@ -100,10 +100,13 @@ class PlayerViewController: UIViewController {
         setSong(index: randIndex);
     }
     
+    var totalTime : Double = 0;
     func startTimer(){
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true);
         updatePlayPauseButtonText();
+        totalTime = (mediaPlayer.nowPlayingItem?.playbackDuration)!;
     }
+    
     
     @objc func updateTime(){
         if (mediaPlayer.playbackState != .playing){
@@ -111,7 +114,7 @@ class PlayerViewController: UIViewController {
             return;
         }
         let pastTime  = mediaPlayer.currentPlaybackTime;
-        let totalTime = (mediaPlayer.nowPlayingItem?.playbackDuration)!;
+        
         TimeLine.progress = Float(pastTime / totalTime);
         TimePastLabel.text = timeToString(seconds: Int(pastTime));
         TimeRemainingLabel.text = timeToString(seconds: Int(totalTime) - Int(pastTime));
