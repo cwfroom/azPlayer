@@ -46,7 +46,7 @@ class MusicData{
     var songs : [SongInfo];
     var currentIndex : Int = 0;
     var sectionTitles : [String];
-    let properTitles = [ "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","あ","か","さ","た","な","は","ま","や","ら","わ","#"];
+    //let properTitles = [ "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","あ","か","さ","た","な","は","ま","や","ら","わ","#"];
     var songDic : [String:[SongInfo]];
     var readingDic : [String:String];
     
@@ -86,7 +86,6 @@ class MusicData{
         }
         let entries = stringfied.components(separatedBy: "\n");
         for entry in entries {
-            print(entry+"\n");
             let entrySplit = entry.components(separatedBy: "::");
             if (entrySplit.count > 1){
                 readingDic[entrySplit[0]] = entrySplit[1];
@@ -174,24 +173,43 @@ class MusicData{
                 }
                 self.songDic[sectionTitle] = sectionSongs;
             }
-            addSectionSong(songInfoCopy,true);
-            songsTableView.reloadData();
+            let indices = addSectionSong(songInfoCopy);
+            songsTableView.reloadAndScroll(indices[0],indices[1]);
             readingDic[songInfoCopy.songTitle] = songInfoCopy.titleReading;
             saveReadingDic();
         }
         
     }
     
-    private func addSectionSong (_ songInfo : SongInfo,_ sort : Bool){
+    private func addSectionSongInit (_ songInfo : SongInfo){
         let sectionTitle = self.catagorize(songInfo.titleReading);
         if var sectionSongs = self.songDic[sectionTitle]{
             sectionSongs.append(songInfo);
-            if (sort){
-                sectionSongs = sectionSongs.sorted(by: {$0.titleReading < $1.titleReading});
-            }
             self.songDic[sectionTitle] = sectionSongs;
         }else{
             self.songDic[sectionTitle] = [songInfo];
+        }
+    }
+    
+    private func addSectionSong (_ songInfo : SongInfo) -> [Int]{
+        let sectionTitle = self.catagorize(songInfo.titleReading);
+        var rowIndex = 0;
+        if var sectionSongs = self.songDic[sectionTitle]{
+            sectionSongs.append(songInfo);
+            sectionSongs = sectionSongs.sorted(by: {$0.titleReading < $1.titleReading});
+            self.songDic[sectionTitle] = sectionSongs;
+            rowIndex = sectionSongs.index(of:songInfo)!;
+        }else{
+            self.songDic[sectionTitle] = [songInfo];
+        }
+        let sectionIndex = sectionTitles.index(of: sectionTitle)!;
+        return [sectionIndex,rowIndex];
+    }
+    
+    public func sortAll(){
+        for key in sectionTitles{
+            let sectionSongs = self.songDic[key]!;
+            self.songDic[key] = sectionSongs.sorted(by: {$0.titleReading < $1.titleReading});
         }
     }
     
@@ -218,11 +236,12 @@ class MusicData{
                     
                     let aSong : SongInfo = SongInfo(songTitle: songTitle, titleReading: titleReading, artistName: artist, albumTitle: albumTitle,index : i);
                     self.songs.append(aSong);
-                    self.addSectionSong(aSong,false);
+                    self.addSectionSongInit(aSong);
  
                 }
                 self.sectionTitles = [String](self.songDic.keys);
                 self.sectionTitles = self.sectionTitles.sorted();
+                self.sortAll();
                 songsTableView.reloadData();
                 
             } else {

@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8On-pg-cYH" userLabel="PlayPauseButton">
-                                <rect key="frame" x="147" y="502" width="80" height="48"/>
+                                <rect key="frame" x="147.5" y="502" width="80" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="4a8-4d-6BQ"/>
                                 </constraints>
@@ -50,31 +50,31 @@
                                 </constraints>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IGF-12-pQL" userLabel="TimeLine">
-                                <rect key="frame" x="37" y="390" width="300" height="2"/>
+                                <rect key="frame" x="37.5" y="390" width="300" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="W4h-55-22k"/>
                                 </constraints>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR1-kT-BTh" userLabel="PlayCountLabel">
-                                <rect key="frame" x="84" y="570" width="48.5" height="19.5"/>
+                                <rect key="frame" x="83.5" y="570" width="48.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skipped" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppW-F2-P1x" userLabel="SkipCountLabel">
-                                <rect key="frame" x="238.5" y="570" width="59.5" height="19.5"/>
+                                <rect key="frame" x="238" y="570" width="59.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEP-kb-KiY" userLabel="PastTimeLabel">
-                                <rect key="frame" x="17.5" y="394" width="39" height="17"/>
+                                <rect key="frame" x="18" y="394" width="39" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mT-q6-pYy" userLabel="RemainingTimeLabel">
-                                <rect key="frame" x="317.5" y="394" width="39" height="17"/>
+                                <rect key="frame" x="318" y="394" width="39" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
                                 <rect key="frame" x="0.0" y="76" width="375" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="YBq-O4-XqE" customClass="SongsTableCell" customModule="azPlayer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="YBq-O4-XqE" customClass="SongsTableCell" customModule="azPlayer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YBq-O4-XqE" id="lY1-fr-sN2">
@@ -243,6 +243,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DU6-Xq-hXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1176" y="-120"/>
+        </scene>
+        <!--Reading View Controller-->
+        <scene sceneID="4Mx-Jg-yrV">
+            <objects>
+                <viewController storyboardIdentifier="ReadingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nmE-aT-hxD" customClass="ReadingViewController" customModule="azPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mZt-tP-ldW">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IxW-h5-aqe">
+                                <rect key="frame" x="10" y="41" width="280" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Bij-3N-yfH"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auP-2W-8HC">
+                                <rect key="frame" x="10" y="10" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="RU1-9a-b6r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IxW-h5-aqe" secondAttribute="bottom" constant="25" id="9eI-Nd-iwl"/>
+                            <constraint firstItem="auP-2W-8HC" firstAttribute="centerX" secondItem="mZt-tP-ldW" secondAttribute="centerX" id="EBf-aA-TJL"/>
+                            <constraint firstItem="IxW-h5-aqe" firstAttribute="centerX" secondItem="mZt-tP-ldW" secondAttribute="centerX" id="UT0-yS-n0f"/>
+                            <constraint firstItem="auP-2W-8HC" firstAttribute="top" secondItem="mZt-tP-ldW" secondAttribute="top" constant="10" id="mYs-rF-6nM"/>
+                            <constraint firstItem="IxW-h5-aqe" firstAttribute="top" secondItem="auP-2W-8HC" secondAttribute="bottom" constant="10" id="puQ-nc-HBM"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="300" height="100"/>
+                    <connections>
+                        <outlet property="readingTextField" destination="IxW-h5-aqe" id="0Cu-WV-DDf"/>
+                        <outlet property="titleLabel" destination="auP-2W-8HC" id="EMb-mO-Yce"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ROe-j0-e2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="602" y="-459"/>
         </scene>
     </scenes>
     <resources>

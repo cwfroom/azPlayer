@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import PopupDialog
 
 class SongsTableViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     let data : MusicData = MusicData.sharedInstance;
@@ -20,13 +21,7 @@ class SongsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         data.LoadSongs(self);
-        
         self.tableView.reloadData();
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +45,13 @@ class SongsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         }
     }
     
+    public func reloadAndScroll(_ section : Int,_ row : Int){
+        DispatchQueue.main.async {
+            self.tableView.reloadData();
+            self.scrollTo(section, row);
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongsTableCell;
@@ -67,18 +69,30 @@ class SongsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         if (editMode){
             let sectionTitle = data.sectionTitles[indexPath.section];
             let songInfo = data.songDic[sectionTitle]![indexPath.row];
+            let storyboard = UIStoryboard(name:"Main",bundle:nil);
+            let readingVC = storyboard.instantiateViewController(withIdentifier: "ReadingVC") as! ReadingViewController;
             
-            let alert = UIAlertController(title: "Edit Reading", message: songInfo.songTitle, preferredStyle: .alert)
-            alert.addTextField { (textField) in
-                textField.text = songInfo.titleReading
+            let popup = PopupDialog(viewController: readingVC);
+            
+            
+            let fetchButton = DefaultButton(title:"Fetch",dismissOnTap: false){
+                Yomigana.Convert(songInfo.songTitle,completion: {(result:String) -> Void in
+                    readingVC.setReading(result);
+                })
             }
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                let reading = alert?.textFields![0].text;
-                self.data.UpdateSong(self,songInfo,sectionTitle,reading!);
-                
-                //print("Text field: \(String(describing: textField?.text))")
-            }))
-            self.present(alert, animated: true, completion: nil)
+            let okButton = DefaultButton(title: "OK"){
+                let edited = readingVC.getReading();
+                if (edited != songInfo.titleReading){
+                    self.data.UpdateSong(self, songInfo, sectionTitle, edited);
+                }
+            }
+            let cancelButton = CancelButton(title: "Cancel"){};
+            
+            self.present(popup,animated:true,completion: nil);
+            readingVC.setTitle(songInfo.songTitle);
+            readingVC.setReading(songInfo.titleReading);
+            popup.addButtons([fetchButton,okButton,cancelButton]);
+
         }else{
             data.currentIndex = data.songDic[data.sectionTitles[indexPath.section]]![indexPath.row].index;
             self.tabBarController?.selectedIndex = 1;
@@ -107,6 +121,11 @@ class SongsTableViewController: UIViewController, UITableViewDelegate,UITableVie
             self.editButton.setTitle("Edit", for:.normal);
         }
         self.tableView.reloadData();
+    }
+    
+    public func scrollTo(_ section : Int, _ row : Int){
+        let indexPath = IndexPath(row: row, section: section);
+        self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true);
     }
     
     /*

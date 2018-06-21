@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C028338ACE9ADD07BD10A2C /* Pods_azPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890FB8D00E46E52710A1AB29 /* Pods_azPlayer.framework */; };
 		9109362C1FEDCB8300ADCCAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109362B1FEDCB8300ADCCAA /* AppDelegate.swift */; };
 		910936311FEDCB8300ADCCAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9109362F1FEDCB8300ADCCAA /* Main.storyboard */; };
 		910936331FEDCB8300ADCCAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 910936321FEDCB8300ADCCAA /* Assets.xcassets */; };
@@ -17,6 +18,8 @@
 		911E8FF7201FFE2C00E4682F /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E8FF6201FFE2C00E4682F /* PlayerViewController.swift */; };
 		9186AB6C2016C76000657BED /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186AB6B2016C76000657BED /* SongsTableViewController.swift */; };
 		9186AB6E2016D84500657BED /* MusicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186AB6D2016D84500657BED /* MusicData.swift */; };
+		919CB1E120DA43650099C814 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CB1E020DA43650099C814 /* ReadingViewController.swift */; };
+		91C6031C20DA2CAC005EFF50 /* Yomigana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C6031B20DA2CAC005EFF50 /* Yomigana.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		890FB8D00E46E52710A1AB29 /* Pods_azPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_azPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		910936281FEDCB8300ADCCAA /* azPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = azPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9109362B1FEDCB8300ADCCAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		910936301FEDCB8300ADCCAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +57,10 @@
 		911E8FF6201FFE2C00E4682F /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		9186AB6B2016C76000657BED /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 		9186AB6D2016D84500657BED /* MusicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicData.swift; sourceTree = "<group>"; };
+		919CB1E020DA43650099C814 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
+		91C6031B20DA2CAC005EFF50 /* Yomigana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yomigana.swift; sourceTree = "<group>"; };
+		C39E2A98F3260B466E18F701 /* Pods-azPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-azPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-azPlayer/Pods-azPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		F6DBA92512BB2FB543614E84 /* Pods-azPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-azPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-azPlayer/Pods-azPlayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C028338ACE9ADD07BD10A2C /* Pods_azPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334CCDBE659A818703FB7817 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				890FB8D00E46E52710A1AB29 /* Pods_azPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9109361F1FEDCB8300ADCCAA = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +104,8 @@
 				9109363F1FEDCB8400ADCCAA /* azPlayerTests */,
 				9109364A1FEDCB8400ADCCAA /* azPlayerUITests */,
 				910936291FEDCB8300ADCCAA /* Products */,
+				D16535E252F773DAD5341E82 /* Pods */,
+				334CCDBE659A818703FB7817 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				9186AB6D2016D84500657BED /* MusicData.swift */,
+				91C6031B20DA2CAC005EFF50 /* Yomigana.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,10 +172,20 @@
 			isa = PBXGroup;
 			children = (
 				9186AB6B2016C76000657BED /* SongsTableViewController.swift */,
+				919CB1E020DA43650099C814 /* ReadingViewController.swift */,
 				911E8FF4201FEF5B00E4682F /* SongsTableCell.swift */,
 				911E8FF6201FFE2C00E4682F /* PlayerViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D16535E252F773DAD5341E82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C39E2A98F3260B466E18F701 /* Pods-azPlayer.debug.xcconfig */,
+				F6DBA92512BB2FB543614E84 /* Pods-azPlayer.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 910936501FEDCB8400ADCCAA /* Build configuration list for PBXNativeTarget "azPlayer" */;
 			buildPhases = (
+				88699469E5A11585920C3719 /* [CP] Check Pods Manifest.lock */,
 				910936241FEDCB8300ADCCAA /* Sources */,
 				910936251FEDCB8300ADCCAA /* Frameworks */,
 				910936261FEDCB8300ADCCAA /* Resources */,
+				CAD945DB042B7B15F6F7A328 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,16 +324,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		88699469E5A11585920C3719 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-azPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAD945DB042B7B15F6F7A328 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-azPlayer/Pods-azPlayer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-azPlayer/Pods-azPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		910936241FEDCB8300ADCCAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C6031C20DA2CAC005EFF50 /* Yomigana.swift in Sources */,
 				9186AB6C2016C76000657BED /* SongsTableViewController.swift in Sources */,
 				911E8FF5201FEF5B00E4682F /* SongsTableCell.swift in Sources */,
 				9186AB6E2016D84500657BED /* MusicData.swift in Sources */,
 				9109362C1FEDCB8300ADCCAA /* AppDelegate.swift in Sources */,
 				911E8FF7201FFE2C00E4682F /* PlayerViewController.swift in Sources */,
+				919CB1E120DA43650099C814 /* ReadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +546,7 @@
 		};
 		910936511FEDCB8400ADCCAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C39E2A98F3260B466E18F701 /* Pods-azPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -484,6 +562,7 @@
 		};
 		910936521FEDCB8400ADCCAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6DBA92512BB2FB543614E84 /* Pods-azPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
